@@ -1,0 +1,36 @@
+<html>
+  <head>
+      <meta http-equiv='Content-Type' content='text/html; charset=utf-8'>
+      <title>demo for xxx</title>
+      <meta name='keywords' content='demo'>
+      <meta name='description' content='这是一个 xxx 的 demo'>
+
+      <!-- js/css -->
+
+  </head>
+  <body>
+    这是一个demo
+    <iframe id='ifrm' src='https://c.mi.com'  style="width: 1280px;transform: scale(0.5);" height="400" onload="console.log(123)"></iframe>
+    <script>
+    function setIframeHeight(id) {
+      var ifrm = document.getElementById(id);
+      var doc = ifrm.contentDocument? ifrm.contentDocument: 
+          ifrm.contentWindow.document;
+      ifrm.style.visibility = 'hidden';
+      ifrm.style.height = "10px"; // reset to minimal height ...
+      // IE opt. for bing/msn needs a bit added or scrollbar appears
+      ifrm.style.height = getDocHeight( doc ) + 4 + "px";
+      ifrm.style.visibility = 'visible';
+    }
+
+    function getDocHeight(doc) {
+      doc = doc || document;
+      // stackoverflow.com/questions/1145850/
+      var body = doc.body, html = doc.documentElement;
+      var height = Math.max( body.scrollHeight, body.offsetHeight, 
+          html.clientHeight, html.scrollHeight, html.offsetHeight );
+      return height;
+    }
+    </script>
+  </body>
+</html>
